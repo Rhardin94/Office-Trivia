@@ -8,5 +8,6 @@
 7. Make timer move game to next stage whether the user picks correctly, incorrectly, or not at all.
 8. Create a win page for each correct guess.
 9. Create a loss page for each incorrect guess that displays the correct answer.
+10. Display users' correct, incorrect, and unanswered questions at the end of the game.
 Bonus. Play audio files for each correct or incorrect answer, as well as at the beginning and end of the game.
 */
