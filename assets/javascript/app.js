@@ -19,3 +19,54 @@ Bonus. Play audio files for each correct or incorrect answer, as well as at the 
 5. Each question the user is given 30 seconds to answer.
 6. At the end of the game, (another audio file is played), correct, incorrect, and unanswered questsions are displayed, and a reset button is displayed.
 */
+//Object that holds all the questions and answers?
+const triviaGame = {
+    q1 = {
+        a1 : "Jan",
+        a2 : "Carol",
+        a3 : "Holly",
+        a4 : "Donna",
+    },
+    q2 = {
+        a1 : "",
+        a2 : "",
+        a3 : "",
+        a4 : "",
+    },
+    q3 = {
+        a1 : "",
+        a2 : "",
+        a3 : "",
+        a4 : "",
+    },
+    q4 = {
+        a1 : "",
+        a2 : "",
+        a3 : "",
+        a4 : "",
+    },
+    q5 = {
+        a1 : "",
+        a2 : "",
+        a3 : "",
+        a4 : "",
+    },
+    q6 = {
+        a1 : "",
+        a2 : "",
+        a3 : "",
+        a4 : "",
+    },
+    q7 = {
+        a1 : "",
+        a2 : "",
+        a3 : "",
+        a4 : "",
+    },
+    q8 = {
+        a1 : "",
+        a2 : "",
+        a3 : "",
+        a4 : "",
+    },
+}
