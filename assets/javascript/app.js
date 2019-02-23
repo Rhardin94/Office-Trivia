@@ -11,3 +11,11 @@
 10. Display users' correct, incorrect, and unanswered questions at the end of the game.
 Bonus. Play audio files for each correct or incorrect answer, as well as at the beginning and end of the game.
 */
+/* Conditions of the game:
+1. User is given a question with 4 possible answers.
+2. User must select and answer by clicking a corresponding button.
+3. If answer is correct, a win screen is briefly displayed (an audio file is played) and the game moves to the next question
+4. If the answer is incorrect, a loss screen is displayed with the correct answer(an audio file is played) and the game moves to the next question.
+5. Each question the user is given 30 seconds to answer.
+6. At the end of the game, (another audio file is played), correct, incorrect, and unanswered questsions are displayed, and a reset button is displayed.
+*/
