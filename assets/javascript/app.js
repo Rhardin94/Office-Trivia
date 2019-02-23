@@ -19,8 +19,13 @@ Bonus. Play audio files for each correct or incorrect answer, as well as at the 
 5. Each question the user is given 30 seconds to answer.
 6. At the end of the game, (another audio file is played), correct, incorrect, and unanswered questsions are displayed, and a reset button is displayed.
 */
+//Making sure all HTML loads before any scripts run.
+$(document).ready(function() {
+// Creating global variables for audio files
+const themeSong = new Audio("../audio/officetheme.mp3")
 //Object that holds all the questions and answers?
 const triviaGame = {
+	isRunning = true,
 	q1 = {
 		a1: "Jan",
 		a2: "Carol",
@@ -70,3 +75,40 @@ const triviaGame = {
 		a4: "",
 	},
 }
+// Global variables to record correct, incorrect, and unanswered questions
+let correct = 0;
+let incorrect = 0;
+let unanswered = 0;
+// Global variables to determine which question is displayed
+let quest1 = false;
+let quest2 = false;
+let quest3 = false;
+let quest4= false;
+let quest5= false;
+let quest6 = false;
+let quest7 = false;
+let quest8 = false;
+// Global variables to determine if win or lose screen, and/or start/restart game is displayed
+let isRunning = false;
+let correctQuess = false;
+let incorrectGuess = false;
+let gameOver = false;
+//Function that sets everything to zero and starts the game over
+function resetGame() {
+	correct = 0;
+	incorrect = 0;
+	unanswered = 0;
+	isRunning = false;
+	gameOver = false;
+}
+//Function for q1
+function question1() {
+	quest1 = true;
+	if (quest1) {
+	$("#answer-stats").append(triviaGame.q1.a1);
+	$("#answer-stats").append(triviaGame.q1.a2);
+	$("#answer-stats").append(triviaGame.q1.a3);
+	$("#answer-stats").append(triviaGame.q1.a4);  	
+	}
+}
+})
