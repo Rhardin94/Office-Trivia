@@ -18,7 +18,7 @@ Bonus. Play audio files for each correct or incorrect answer, as well as at the 
 4. If the answer is incorrect, a loss screen is displayed with the correct answer(an audio file is played) and the game moves to the next question.
 5. Each question the user is given 30 seconds to answer.
 6. At the end of the game, (another audio file is played), correct, incorrect, and unanswered questsions are displayed, and a reset button is displayed.
-*/
+
 //Making sure all HTML loads before any scripts run.
 $(document).ready(function() {
 // Creating global variables for audio files
@@ -111,4 +111,45 @@ function question1() {
 	$("#answer-stats").append(triviaGame.q1.a4);  	
 	}
 }
-})
+})*/
+/*
+1. Make start screen appear that includes begin button
+2. Make question screen appear with 1 question, and 4 answers
+3. Determine if user clicks correct or incorrect answer.
+4. Display Correct screen, or incorrect screen that displays correct answer.
+5. Display end screen with correct, incorrect, and unanswered stats.
+6. Make play again button reset game without refreshing browser.
+*/
+//Global variables I think I need
+let correctGuess = 0;
+let incorrectGuess = 0;
+let unanswered = 0;
+let isRunning = false;
+//Adding a button to make the game start and class for styling later
+$("#answers-stats").html("<button> Click here to begin </button>");
+$("<button>").addClass("goBtn");
+//Creating an object with the question and answers
+const triviaGame = {
+	q1 : "Who was Michael Scott's first on-screen kiss?",
+	q1Answers : {
+		a1 : "Jan",
+		a2 : "Carol",
+		a3 : "Donna",
+		a4 : "Holly",
+	}
+}
+//Adding on click event to goBtn to start gaming
+$(".goBtn").on("click", function() {
+	quest1();
+});
+/*Creating a function for the question section,
+	that displays the question and the four answers,
+	by pulling values from object*/
+function quest1() {
+	isRunning = true;
+	$("#question-text").text(triviaGame.q1);
+	$("answers-stats").append("<h2> triviaGame.q1Answers.a1 </h2>");
+	$("answers-stats").append(triviaGame.q1Answers.a2);
+	$("answers-stats").append(triviaGame.q1Answers.a3);
+	$("answers-stats").append(triviaGame.q1Answers.a4);
+};
