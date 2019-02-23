@@ -1,0 +1,12 @@
+body {
+    background-image: url("../images/background.jpg");
+}
+#game {
+    position: relative;
+    top: 200px;
+    background-image: url("../images/logo.png");
+    color: wheat;
+    width: 960px;
+    margin: auto;
+    text-align: center;
+}
