@@ -51,10 +51,14 @@ const triviaGame = {
 //Variables for the countDown function
 let timer = 30;
 let timerId = setInterval(countDown, 1000);
+console.log(isRunning);
 //Countdown function that gives player 30 seconds to answer question
 function countDown() {
-	if (timer === 0) {
+	if (isRunning === false) {
+		return false;
+	} else if (timer === 0) {
 		clearTimeout(timerId);
+		timesUp();
 	} else {
 		$("#time-remaining").text(timer + " seconds remaining ");
 		timer--;
