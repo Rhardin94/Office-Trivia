@@ -19,99 +19,6 @@ Bonus. Play audio files for each correct or incorrect answer, as well as at the 
 5. Each question the user is given 30 seconds to answer.
 6. At the end of the game, (another audio file is played), correct, incorrect, and unanswered questsions are displayed, and a reset button is displayed.
 
-//Making sure all HTML loads before any scripts run.
-$(document).ready(function() {
-// Creating global variables for audio files
-const themeSong = new Audio("../audio/officetheme.mp3")
-//Object that holds all the questions and answers?
-const triviaGame = {
-	isRunning = true,
-	q1 = {
-		a1: "Jan",
-		a2: "Carol",
-		a3: "Holly",
-		a4: "Donna",
-	},
-	q2 = {
-		a1: "",
-		a2: "",
-		a3: "",
-		a4: "",
-	},
-	q3 = {
-		a1: "",
-		a2: "",
-		a3: "",
-		a4: "",
-	},
-	q4 = {
-		a1: "",
-		a2: "",
-		a3: "",
-		a4: "",
-	},
-	q5 = {
-		a1: "",
-		a2: "",
-		a3: "",
-		a4: "",
-	},
-	q6 = {
-		a1: "",
-		a2: "",
-		a3: "",
-		a4: "",
-	},
-	q7 = {
-		a1: "",
-		a2: "",
-		a3: "",
-		a4: "",
-	},
-	q8 = {
-		a1: "",
-		a2: "",
-		a3: "",
-		a4: "",
-	},
-}
-// Global variables to record correct, incorrect, and unanswered questions
-let correct = 0;
-let incorrect = 0;
-let unanswered = 0;
-// Global variables to determine which question is displayed
-let quest1 = false;
-let quest2 = false;
-let quest3 = false;
-let quest4= false;
-let quest5= false;
-let quest6 = false;
-let quest7 = false;
-let quest8 = false;
-// Global variables to determine if win or lose screen, and/or start/restart game is displayed
-let isRunning = false;
-let correctQuess = false;
-let incorrectGuess = false;
-let gameOver = false;
-//Function that sets everything to zero and starts the game over
-function resetGame() {
-	correct = 0;
-	incorrect = 0;
-	unanswered = 0;
-	isRunning = false;
-	gameOver = false;
-}
-//Function for q1
-function question1() {
-	quest1 = true;
-	if (quest1) {
-	$("#answer-stats").append(triviaGame.q1.a1);
-	$("#answer-stats").append(triviaGame.q1.a2);
-	$("#answer-stats").append(triviaGame.q1.a3);
-	$("#answer-stats").append(triviaGame.q1.a4);  	
-	}
-}
-})*/
 /*
 1. Make start screen appear that includes begin button
 2. Make question screen appear with 1 question, and 4 answers
@@ -125,9 +32,12 @@ let correctGuess = 0;
 let incorrectGuess = 0;
 let unanswered = 0;
 let isRunning = false;
+let themeSong = new Audio("assets/audio/officetheme.mp3");
+//Function to ensure HTML loads first
+$(document).ready(function() {
 //Adding a button to make the game start and class for styling later
-$("#answers-stats").html("<button> Click here to begin </button>");
-$("<button>").addClass("goBtn");
+$("#answers-stats").append("<h2> Click here to begin </h2>");
+$("h2").attr("id", "goBtn");
 //Creating an object with the question and answers
 const triviaGame = {
 	q1 : "Who was Michael Scott's first on-screen kiss?",
@@ -139,17 +49,23 @@ const triviaGame = {
 	}
 }
 //Adding on click event to goBtn to start gaming
-$(".goBtn").on("click", function() {
+$("#goBtn").on("click", function() {
+	isRunning = true;
 	quest1();
 });
 /*Creating a function for the question section,
 	that displays the question and the four answers,
 	by pulling values from object*/
 function quest1() {
-	isRunning = true;
-	$("#question-text").text(triviaGame.q1);
-	$("answers-stats").append("<h2> triviaGame.q1Answers.a1 </h2>");
-	$("answers-stats").append(triviaGame.q1Answers.a2);
-	$("answers-stats").append(triviaGame.q1Answers.a3);
-	$("answers-stats").append(triviaGame.q1Answers.a4);
-};
+	let quest1 = $("#question-text").text(triviaGame.q1);
+	let ans1 = $("<h2>").text(triviaGame.q1Answers.a1);
+	let ans2 = $("<h2>").text(triviaGame.q1Answers.a2);
+	let ans3 = $("<h2>").text(triviaGame.q1Answers.a3);
+	let ans4 = $("<h2>").text(triviaGame.q1Answers.a4);	
+	if (isRunning = true) {
+		$("#goBtn").text("");
+		$("#question-text").append(quest1);
+		$("#answers-stats").append(ans1, ans2, ans3, ans4);
+	}
+}
+});

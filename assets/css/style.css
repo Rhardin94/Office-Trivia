@@ -4,9 +4,10 @@ body {
 #game {
     position: relative;
     top: 200px;
-    background-image: url("../images/logo.png");
-    color: wheat;
+    background-color: tan;
     width: 960px;
+    height: 400px;
     margin: auto;
+    padding: 20px;
     text-align: center;
 }
