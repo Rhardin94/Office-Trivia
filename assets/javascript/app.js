@@ -48,6 +48,18 @@ const triviaGame = {
 		a4 : "Holly",
 	}
 }
+//Variables for the countDown function
+let timer = 30;
+let timerId = setInterval(countDown, 1000);
+//Countdown function that gives player 30 seconds to answer question
+function countDown() {
+	if (timer === 0) {
+		clearTimeout(timerId);
+	} else {
+		$("#time-remaining").text(timer + " seconds remaining ");
+		timer--;
+	}
+}
 //Adding on click event to goBtn to start gaming
 $("#goBtn").on("click", function() {
 	isRunning = true;
@@ -63,10 +75,12 @@ function quest1() {
 	let ans3 = $("<h2>").text(triviaGame.q1Answers.a3);
 	let ans4 = $("<h2>").text(triviaGame.q1Answers.a4);	
 	if (isRunning = true) {
+		countDown();
 		$("#goBtn").text("");
 		$("#question-text").append(quest1);
 		$("#answers-stats").append(ans1, ans2, ans3, ans4);
 	}
+	//On-click function that determines if answers is correct or incorrect.
 	$("h2").on("click", function() {
 		if (ans1) {
 			correctGuess++;
