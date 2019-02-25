@@ -67,5 +67,14 @@ function quest1() {
 		$("#question-text").append(quest1);
 		$("#answers-stats").append(ans1, ans2, ans3, ans4);
 	}
+	$("h2").on("click", function() {
+		if (ans1) {
+			correctGuess++;
+			correctGuess();
+		} else if ((ans2) || (ans3) || (ans4)) {
+			incorrectGuess++;
+			incorrectGuess();
+		}
+	})
 }
 });
