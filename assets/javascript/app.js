@@ -95,4 +95,11 @@ function quest1() {
 		}
 	})
 }
+//Function that displays when the 30 seconds are up.
+function timesUp() {
+	unanswered++;
+	$("#time-remaining").text("");
+	$("#question-text").text("You didn't answer the question!");
+	$("#answers-stats").text("");
+}
 });
