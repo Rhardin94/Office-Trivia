@@ -164,7 +164,7 @@ function hidePic2() {
 			//Appends correct, incorrect, and unanswered scores
 			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
-			$("#answers-stats").append("<h2 Unanswered..." + unanswered + "</h2>");
+			$("#answers-stats").append("<h2> Unanswered..." + unanswered + "</h2>");
 			let resetBtn = $("<h4>").text("Play Again?");
 			resetBtn.attr("id", "reset");
 			$("#answers-stats").append(resetBtn);
