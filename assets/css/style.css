@@ -11,3 +11,22 @@ body {
     padding: 20px;
     text-align: center;
 }
+h2 :hover {
+    color: whitesmoke;
+}
+.userguess {
+    background-color: darkgray;
+    width: 35%;
+    text-align: center;
+    margin: 15px auto;
+    border: 3px solid white;
+}
+.userguess :hover {
+    color: white;
+}
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}

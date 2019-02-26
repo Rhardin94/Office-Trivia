@@ -1,10 +1,12 @@
+//Function the ensures HTML loads first
+$(document).ready(function () {
 //Object
 const triviaGame = [{
 	question: "Who was Michael Scott's first on-screen kiss?",
 	options: ["Jan", "Carol", "Donna", "Holly"],
 	answer: 0,
 	photo1: "assets/images/jan.webp",
-	photo2: "assets/iamges/jan2.gif",
+	photo2: "assets/images/jan2.gif",
 }, {
 	question: "What product does Dunder Mifflin primarily sell?",
 	options: ["Pencils", "Post-it Notes", "Paper", "Printers"],
@@ -24,8 +26,7 @@ let pick;
 let index;
 let emptyArray = [];
 let tempArray = [];
-//Function the ensures HTML loads first
-$(document).ready(function () {
+
 	let goBtn = $("<h2>").text("Click here to begin");
 		$("#answers-stats").append(goBtn);
 
@@ -55,7 +56,9 @@ $(document).ready(function () {
 			halt();
 			$("#question-text").html("<h3> You didn't answer the question...</h3>");
 			let idiotGif = $("<img>").attr("src", "assets/images/dwight.gif");
-			$("#ansers-stats").append(idiotGif);
+			$("#answers-stats").text("");
+			$("#answers-stats").append(idiotGif);
+			hidePic2();
 		}
 	}
 	//Function that stops the countDown, will be called multiple times.
@@ -70,21 +73,21 @@ $(document).ready(function () {
 		//Associates the choice with the random position chosen above
 		pick = triviaGame[index];
 		//Appends the chosen question to the question-text div
-		$("#question-text").html("<h3>" + pick.question + "</h2>");
+		$("#question-text").html("<h3>" + pick.question + "</h3>");
 		//Loops through the keys in the chosen position
-		for (let i = 0; i < pick.triviaGame.length; i++) {
+		for (let i = 0; i < pick.options.length; i++) {
 			//Assigns the user's guess to a dynamically created div
-			let userGuess = $("<div>").attr("class", "user-choice");
-			//Appends each value inside a newly created div
+			let userGuess = $("<h2>").attr("class", "userguess");
+			//Appends each value as an h2 inside a newly created div
 			userGuess.html(pick.options[i]);
 			//Assigns a data-value to each key: value
 			userGuess.attr("data-guessvalue", i);
-			//Appends the newly created divs with each answer options into the answers-stats div
+			//Appends the newly created divs with each answer option into the answers-stats div
 			$("#answers-stats").append(userGuess);
 		}
 	}
 //Function that allows user to choose an answer and determines the outcome
-$(".user-choice").on("click", function() {
+$(".userguess").on("click", function() {
 	//Determines the array position of each userGuess option by converting it back to an integer temporarily
 	userGuess = parseInt($(this).attr("data-guessvalue"));
 	//If user guesses correctly
@@ -99,12 +102,12 @@ $(".user-choice").on("click", function() {
 		$("#question-text").text("<h3> Congrats! You want a medal, or should we continue? </h3>");
 		//Call correct guess picture function
 		hidePic1();
-	} else {
-		halt();
-		incorrectGuess++;
-		userGuess = "";
-		$("#question-text").html("<h3 Nope, the correct answer is: " + pick.options[pick.answer] + "</h3>");
-		hidePic2();
+		} else {
+				halt();
+				incorrectGuess++;
+				userGuess = "";
+				$("#question-text").html("<h3 Nope, the correct answer is: " + pick.options[pick.answer] + "</h3>");
+				hidePic2();
 	}
 })
 //Function that hides photo and then displays if anwer is correct
@@ -126,7 +129,7 @@ function hidePic1() {
 			//Appends correct, incorrect, and unanswered scores
 			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
-			$("#answers-stats").append("<h2 Unanswered..." + unanswered + "</h2>");
+			$("#answers-stats").append("<h2 Unanswered: " + unanswered + "</h2>");
 			let resetBtn = $("<h4>").text("Play Again?");
 			resetBtn.attr("id", "reset");
 			$("#answers-stats").append(resetBtn);
