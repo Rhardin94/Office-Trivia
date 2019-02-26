@@ -99,11 +99,48 @@ $(".user-choice").on("click", function() {
 		$("#question-text").text("<h3> Congrats! You want a medal, or should we continue? </h3>");
 		//Call correct guess picture function
 		hidePic1();
+	} else {
+		halt();
+		incorrectGuess++;
+		userGuess = "";
+		$("#question-text").html("<h3 Nope, the correct answer is: " + pick.options[pick.answer] + "</h3>");
+		hidePic2();
 	}
 })
 //Function that hides photo and then displays if anwer is correct
 function hidePic1() {
 	$("#answers-stats").append("<img src=" + pick.photo1 + ">");
+	emptyArray.push(pick);
+	//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
+	triviaGame.splice(index, 1);
+	//Assigns variable to set timeout
+	let hiddenPic = setTimeout(function() {
+		$("#answers-stats").empty();
+		timer = 30;
+		//Check if game is over, and then displays the score screen
+		if ((incorrectGuess + correctGuess + unanswered) === qCount) {
+			//Empty's the question-text div
+			$("#question-text").empty();
+			//Overrides question-text with:
+			$("#question-text").html("<h3> Game Over, Man! Here's the deets: </h3>");
+			//Appends correct, incorrect, and unanswered scores
+			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
+			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
+			$("#answers-stats").append("<h2 Unanswered..." + unanswered + "</h2>");
+			let resetBtn = $("<h4>").text("Play Again?");
+			resetBtn.attr("id", "reset");
+			$("#answers-stats").append(resetBtn);
+			correctGuess = 0;
+			incorrectGuess = 0;
+			unanswered = 0;
+		} else {
+			countDown();
+			displayQuestion();
+		}
+	}, 1000 * 3);
+}
+function hidePic2() {
+	$("#answers-stats").append("<img src=" + pick.photo2 + ">");
 	emptyArray.push(pick);
 	//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
 	triviaGame.splice(index, 1);
