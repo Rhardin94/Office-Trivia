@@ -74,9 +74,13 @@ $("#goBtn").on("click", function() {
 function quest1() {
 	let quest1 = $("#question-text").text(triviaGame.q1);
 	let ans1 = $("<h2>").text(triviaGame.q1Answers.a1);
+		ans1.addClass("right");
 	let ans2 = $("<h2>").text(triviaGame.q1Answers.a2);
+		ans2.addClass("wrong");
 	let ans3 = $("<h2>").text(triviaGame.q1Answers.a3);
-	let ans4 = $("<h2>").text(triviaGame.q1Answers.a4);	
+		ans3.addClass("wrong");
+	let ans4 = $("<h2>").text(triviaGame.q1Answers.a4);
+		ans4.addClass("wrong");	
 	if (isRunning = true) {
 		countDown();
 		$("#goBtn").text("");
@@ -85,10 +89,11 @@ function quest1() {
 	}
 	//On-click function that determines if answers is correct or incorrect.
 	$("h2").on("click", function() {
-		if (ans1) {
-			correctGuess();
-		} else if ((ans2) || (ans3) || (ans4)) {
-			incorrectGuess();
+		let userGuess = $(this).on("click");
+		if (userGuess === ans1) {
+			corGuess();
+		} else {
+			incorGuess();
 		}
 	})
 }
@@ -97,11 +102,28 @@ function timesUp() {
 	unanswered++;
 	$("#time-remaining").text("");
 	$("#question-text").text("You didn't answer the question!");
+	let idiotGif = $("<img>").attr("src", "assets/images/dwight.gif");
 	$("#answers-stats").text("");
+	$("#answers-stats").append(idiotGif);
+}
+//Function that displays when the user guesses correctly
+function corGuess() {
+	correctGuess++;
+	$("#question-text").text("Congratulations! You want a medal, or should we keep going?");
+	let correctGif = $("<img>").attr("src", "assets/images/jan.webp");
+	clearTimeout(timerId);
+	$("#time-remaining").text("");
+	$("h2").text("");
+	$("#answers-stats").append(correctGif);
+}
+//Function that displays when the user guesses incorrectly
+function incorGuess() {
+	incorrectGuess++;
+	$("#question-text").text("No, idiot. The correct answer was: " + triviaGame.q1Answers.a1);
+	let incorrectGif = $("<img>").attr("src", "assets/images/jan2.gif");
+	clearTimeout(timerId);
+	$("#time-remaining").text("");
+	$("h2").text("");
+	$("#answers-stats").append(incorrectGif);
 }
 });
-//Function that displays when the user guesses correctly
-function correctGuess() {
-	correctGuess++;
-	
-}
