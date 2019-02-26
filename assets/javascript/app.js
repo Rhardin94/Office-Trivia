@@ -27,6 +27,16 @@ Bonus. Play audio files for each correct or incorrect answer, as well as at the 
 5. Display end screen with correct, incorrect, and unanswered stats.
 6. Make play again button reset game without refreshing browser.
 */
+//Creating an object with the question and answers
+const triviaGame = {
+	q1 : "Who was Michael Scott's first on-screen kiss?",
+	q1Answers : {
+		a1 : "Jan",
+		a2 : "Carol",
+		a3 : "Donna",
+		a4 : "Holly",
+	}
+}
 //Global variables I think I need
 let correctGuess = 0;
 let incorrectGuess = 0;
@@ -38,16 +48,6 @@ $(document).ready(function() {
 //Adding a button to make the game start and class for styling later
 $("#answers-stats").append("<h2> Click here to begin </h2>");
 $("h2").attr("id", "goBtn");
-//Creating an object with the question and answers
-const triviaGame = {
-	q1 : "Who was Michael Scott's first on-screen kiss?",
-	q1Answers : {
-		a1 : "Jan",
-		a2 : "Carol",
-		a3 : "Donna",
-		a4 : "Holly",
-	}
-}
 //Variables for the countDown function
 let timer = 30;
 let timerId = setInterval(countDown, 1000);
@@ -88,13 +88,12 @@ function quest1() {
 		$("#answers-stats").append(ans1, ans2, ans3, ans4);
 	}
 	//On-click function that determines if answers is correct or incorrect.
-	$("h2").on("click", function() {
-		let userGuess = $(this).on("click");
-		if (userGuess === ans1) {
-			corGuess();
-		} else {
-			incorGuess();
-		}
+	$(".right").on("click", function() {
+		corGuess();
+	});
+	//2nd on-click to determine if incorrect or correct
+	$(".wrong").on("click", function() {
+		incorGuess();
 	})
 }
 //Function that displays when the 30 seconds are up.
@@ -126,4 +125,4 @@ function incorGuess() {
 	$("h2").text("");
 	$("#answers-stats").append(incorrectGif);
 }
-});
+})
