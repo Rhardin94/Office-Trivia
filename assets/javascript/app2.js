@@ -88,7 +88,7 @@ const themeSong = new Audio("assets/audio/officetheme.mp3");
 			//Appends the newly created divs with each answer option into the answers-stats div
 			$("#answers-stats").append(userGuess);
 		}
-	}
+	
 //Function that allows user to choose an answer and determines the outcome
 $(".userguess").on("click", function() {
 	//Determines the array position of each userGuess option by converting it back to an integer temporarily
@@ -102,20 +102,21 @@ $(".userguess").on("click", function() {
 		//Temporarily empty the userGuess text
 		userGuess="";
 		//Add congratulatory text to question-text div
-		$("#question-text").text("<h3> Congrats! You want a medal, or should we continue? </h3>");
+		$("#question-text").html("<h3> Congrats! You want a medal, or should we continue? </h3>");
 		//Call correct guess picture function
 		hidePic1();
 		} else {
 				halt();
 				incorrectGuess++;
 				userGuess = "";
-				$("#question-text").html("<h3 Nope, the correct answer is: " + pick.options[pick.answer] + "</h3>");
+				$("#question-text").html("<h3> Nope, the correct answer is: " + pick.options[pick.answer] + "</h3>");
 				hidePic2();
 	}
 })
+}
 //Function that hides photo and then displays if anwer is correct
 function hidePic1() {
-	$("#answers-stats").append("<img src=" + pick.photo1 + ">");
+	$("#answers-stats").html("<img src=" + pick.photo1 + ">");
 	emptyArray.push(pick);
 	//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
 	triviaGame.splice(index, 1);
@@ -132,7 +133,7 @@ function hidePic1() {
 			//Appends correct, incorrect, and unanswered scores
 			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
-			$("#answers-stats").append("<h2 Unanswered: " + unanswered + "</h2>");
+			$("#answers-stats").append("<h2> Unanswered: " + unanswered + "</h2>");
 			let resetBtn = $("<h4>").text("Play Again?");
 			resetBtn.attr("id", "reset");
 			$("#answers-stats").append(resetBtn);
@@ -146,7 +147,7 @@ function hidePic1() {
 	}, 1000 * 3);
 }
 function hidePic2() {
-	$("#answers-stats").append("<img src=" + pick.photo2 + ">");
+	$("#answers-stats").html("<img src=" + pick.photo2 + ">");
 	emptyArray.push(pick);
 	//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
 	triviaGame.splice(index, 1);
