@@ -11,7 +11,8 @@ const triviaGame = [{
 	question: "What product does Dunder Mifflin primarily sell?",
 	options: ["Pencils", "Post-it Notes", "Paper", "Printers"],
 	answer: 2,
-	photo: "",
+	photo1: "",
+	photo2: "",
 }];
 //Global Variables
 let correctGuess = 0;
@@ -26,9 +27,11 @@ let pick;
 let index;
 let emptyArray = [];
 let tempArray = [];
+const themeSong = new Audio("assets/audio/officetheme.mp3");
 
 	let goBtn = $("<h2>").text("Click here to begin");
 		$("#answers-stats").append(goBtn);
+		themeSong.play();
 
 	//Function that begins the game
 	$(goBtn).on("click", function() {
@@ -39,7 +42,7 @@ let tempArray = [];
 			tempArray.push(triviaGame[i]);
 		}
 	})
-	//Function that starts the timer
+	//Function that starts the timer 
 	function countDown() {
 		if (!isRunning) {
 			intervalId = setInterval(decrement, 1000);

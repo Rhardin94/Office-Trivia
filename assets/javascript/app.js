@@ -37,8 +37,11 @@ const triviaGame = {
 		a4 : "Holly",
 	},
 	q2 : "What product does Dunder Mifflin primarily sell?",
-	q1Answers : {
-		a1 : ""
+	q2Answers : {
+		a1 : "Pencils",
+		a2 : "Post-it Notes",
+		a3 : "Paper",
+		a4 : "Printers",
 	}
 }
 //Global variables I think I need
@@ -78,19 +81,19 @@ $("#goBtn").on("click", function() {
 	by pulling values from object*/
 function quest1() {
 	let quest1 = $("#question-text").text(triviaGame.q1);
-	let ans1 = $("<h2>").text(triviaGame.q1Answers.a1);
-		ans1.addClass("right");
-	let ans2 = $("<h2>").text(triviaGame.q1Answers.a2);
-		ans2.addClass("wrong");
-	let ans3 = $("<h2>").text(triviaGame.q1Answers.a3);
-		ans3.addClass("wrong");
-	let ans4 = $("<h2>").text(triviaGame.q1Answers.a4);
-		ans4.addClass("wrong");	
-	if (isRunning = true) {
-		countDown();
-		$("#goBtn").text("");
-		$("#question-text").append(quest1);
-		$("#answers-stats").append(ans1, ans2, ans3, ans4);
+		let ans1 = $("<h2>").text(triviaGame.q1Answers.a1);
+			ans1.addClass("right");
+		let ans2 = $("<h2>").text(triviaGame.q1Answers.a2);
+			ans2.addClass("wrong");
+		let ans3 = $("<h2>").text(triviaGame.q1Answers.a3);
+			ans3.addClass("wrong");
+		let ans4 = $("<h2>").text(triviaGame.q1Answers.a4);
+			ans4.addClass("wrong");	
+		if (isRunning = true) {
+			countDown();
+			$("#goBtn").text("");
+			$("#question-text").append(quest1);
+			$("#answers-stats").append(ans1, ans2, ans3, ans4);
 	}
 	//On-click function that determines if answers is correct or incorrect.
 	$(".right").on("click", function() {
@@ -100,6 +103,12 @@ function quest1() {
 	$(".wrong").on("click", function() {
 		incorGuess();
 	})
+}
+function quest2() {
+	let quest2 = $("#question-text").text(triviaGame.q2);
+		let ans1 = $("<h2>").text(triviaGame.q2Answers.a1);
+			ans1.addClass("wrong");
+		let ans2 = $("<h2>").text(triviaGame.q2Answers.a2);
 }
 //Function that displays when the 30 seconds are up.
 function timesUp() {
@@ -119,6 +128,9 @@ function corGuess() {
 	$("#time-remaining").text("");
 	$("h2").text("");
 	$("#answers-stats").append(correctGif);
+	if (questionCount = 1) {
+		setTimeout(quest2, 1000 * 3);
+	}
 }
 //Function that displays when the user guesses incorrectly
 function incorGuess() {
