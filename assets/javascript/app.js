@@ -35,6 +35,10 @@ const triviaGame = {
 		a2 : "Carol",
 		a3 : "Donna",
 		a4 : "Holly",
+	},
+	q2 : "What product does Dunder Mifflin primarily sell?",
+	q1Answers : {
+		a1 : ""
 	}
 }
 //Global variables I think I need
@@ -43,6 +47,7 @@ let incorrectGuess = 0;
 let unanswered = 0;
 let isRunning = false;
 let themeSong = new Audio("assets/audio/officetheme.mp3");
+let questionCount = 0;
 //Function to ensure HTML loads first
 $(document).ready(function() {
 //Adding a button to make the game start and class for styling later
@@ -53,7 +58,7 @@ let timer = 30;
 let timerId = setInterval(countDown, 1000);
 //Countdown function that gives player 30 seconds to answer question
 function countDown() {
-	if (isRunning === false) {
+	if (!isRunning) {
 		return false;
 	} else if (timer === 0) {
 		clearTimeout(timerId);
