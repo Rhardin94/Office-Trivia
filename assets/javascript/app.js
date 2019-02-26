@@ -51,7 +51,6 @@ const triviaGame = {
 //Variables for the countDown function
 let timer = 30;
 let timerId = setInterval(countDown, 1000);
-console.log(isRunning);
 //Countdown function that gives player 30 seconds to answer question
 function countDown() {
 	if (isRunning === false) {
@@ -87,10 +86,8 @@ function quest1() {
 	//On-click function that determines if answers is correct or incorrect.
 	$("h2").on("click", function() {
 		if (ans1) {
-			correctGuess++;
 			correctGuess();
 		} else if ((ans2) || (ans3) || (ans4)) {
-			incorrectGuess++;
 			incorrectGuess();
 		}
 	})
@@ -103,3 +100,8 @@ function timesUp() {
 	$("#answers-stats").text("");
 }
 });
+//Function that displays when the user guesses correctly
+function correctGuess() {
+	correctGuess++;
+	
+}
