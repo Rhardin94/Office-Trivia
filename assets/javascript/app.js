@@ -37,6 +37,18 @@ $(document).ready(function () {
 		answer: 2,
 		photo1: "assets/images/nice.gif",
 		photo2: "assets/images/work.gif",
+	}, {
+		question: "What was the name of Michael Scarn's Arch Nemesis?",
+		options: ["Goldenrod", "Goldenface", "Shinyface", "Jimothy"],
+		answer: 1,
+		photo1: "assets/images/goldenope.gif",
+		photo2: "assets/images/goldenmad.gif"
+	}, {
+		question: "What is the secret Dwight learns about Oscar early on in the series?",
+		options: ["He's gay", "He wasn't really sick", "He's not really mexican", "He's an undercover cia agent"],
+		answer: 1,
+		photo1: "assets/images/oscar1.gif",
+		photo2: "assets/images/oscar2.gif",
 	}];
 	//Global Variables
 	let correctGuess = 0;
@@ -52,6 +64,10 @@ $(document).ready(function () {
 	let emptyArray = [];
 	let tempArray = [];
 	const themeSong = new Audio("assets/audio/officetheme.mp3");
+	const idiotTone = new Audio("assets/audio/dwight_idiot.wav");
+	const goodJob = new Audio("assets/audio/goodjob.mp3");
+	const scoreScreen = new Audio("assets/audio/scorescreen.mp3");
+	const noPlease = new Audio("assets/audio/Unanswered.m4r");
 //Appends the button that begins the game and plays the themesong
 	let goBtn = $("<button>").html("<h2> Click here to begin </h2>");
 	goBtn.attr("id", "goBtn");
@@ -140,6 +156,7 @@ $(document).ready(function () {
 	}
 	//Function that hides photo and then displays if anwer is correct
 	function correctPic() {
+		goodJob.play();
 		$("#answers-stats").html("<img src=" + pick.photo1 + ">");
 		emptyArray.push(pick);
 		//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
@@ -150,6 +167,7 @@ $(document).ready(function () {
 			timer = 30;
 			//Check if game is over, and then displays the score screen
 			if ((incorrectGuess + correctGuess + unanswered) === qCount) {
+				scoreScreen.play();
 				$("#time-remaining").empty();
 				//Empty's the question-text div
 				$("#question-text").empty();
@@ -173,6 +191,7 @@ $(document).ready(function () {
 	}
 	//Function that hides photo and then displays if answer is incorrect
 	function incorrectPic() {
+		idiotTone.play();
 		$("#answers-stats").html("<img src=" + pick.photo2 + ">");
 		emptyArray.push(pick);
 		//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
@@ -183,6 +202,7 @@ $(document).ready(function () {
 			timer = 30;
 			//Check if game is over, and then displays the score screen
 			if ((incorrectGuess + correctGuess + unanswered) === qCount) {
+				scoreScreen.play();
 				$("#time-remaining").empty();
 				//Empty's the question-text div
 				$("#question-text").empty();
@@ -206,6 +226,7 @@ $(document).ready(function () {
 	}
 	//Function that hides photo then displays if question isn't answered
 	function unansweredPic() {
+		noPlease.play();
 		const fail = $("<img>").attr("src", "assets/images/dwight.gif");
 		$("#answers-stats").html(fail);
 		emptyArray.push(pick);
@@ -217,6 +238,7 @@ $(document).ready(function () {
 			timer = 30;
 			//Check if game is over, and then displays the score screen
 			if ((incorrectGuess + correctGuess + unanswered) === qCount) {
+				scoreScreen.play();
 				$("#time-remaining").empty();
 				//Empty's the question-text div
 				$("#question-text").empty();
