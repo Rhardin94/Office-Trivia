@@ -187,7 +187,7 @@ $(document).ready(function () {
 				countDown();
 				displayQuestion();
 			}
-		}, 1000 * 6);
+		}, 1000 * 4);
 	}
 	//Function that hides photo and then displays if answer is incorrect
 	function incorrectPic() {
@@ -222,7 +222,7 @@ $(document).ready(function () {
 				countDown();
 				displayQuestion();
 			}
-		}, 1000 * 6);
+		}, 1000 * 4);
 	}
 	//Function that hides photo then displays if question isn't answered
 	function unansweredPic() {
@@ -258,7 +258,7 @@ $(document).ready(function () {
 				countDown();
 				displayQuestion();
 			}
-		}, 1000 * 6);
+		}, 1000 * 4);
 	}
 	//Function that restarts the game, does not work, ignoring on-click event for some reason.
 	$("#reset").on("click", function () {
