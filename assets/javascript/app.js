@@ -230,7 +230,8 @@ $(document).ready(function () {
 		const fail = $("<img>").attr("src", "assets/images/dwight.gif");
 		$("#answers-stats").html(fail);
 		emptyArray.push(pick);
-		//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
+		/*Removes all of the items or values from "index" and replaces them with triviaGame object array.
+		.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"*/
 		triviaGame.splice(index, 1);
 		//Assigns variable to set timeout
 		let hiddenPic = setTimeout(function () {
