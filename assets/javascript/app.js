@@ -159,7 +159,11 @@ $(document).ready(function () {
 		goodJob.play();
 		$("#answers-stats").html("<img src=" + pick.photo1 + ">");
 		emptyArray.push(pick);
-		//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
+		/*Because index holds the randomly chosen question in the triviaGame object array, we erase the contents of it.
+		We only need the start point of index, and the end point of 1 because there is only 1 value associated with the index variable at a time
+		essentially just removing the value of the 0 position in this array to replace later.
+		.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"*/
+		triviaGame.splice(index, 1);
 		triviaGame.splice(index, 1);
 		//Assigns variable to set timeout
 		let hiddenPic = setTimeout(function () {
@@ -194,7 +198,11 @@ $(document).ready(function () {
 		idiotTone.play();
 		$("#answers-stats").html("<img src=" + pick.photo2 + ">");
 		emptyArray.push(pick);
-		//.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
+		/*Because index holds the randomly chosen question in the triviaGame object array, we erase the contents of it.
+		We only need the start point of index, and the end point of 1 because there is only 1 value associated with the index variable at a time
+		essentially just removing the value of the 0 position in this array to replace later.
+		.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"*/
+		triviaGame.splice(index, 1);
 		triviaGame.splice(index, 1);
 		//Assigns variable to set timeout
 		let hiddenPic = setTimeout(function () {
@@ -230,7 +238,9 @@ $(document).ready(function () {
 		const fail = $("<img>").attr("src", "assets/images/dwight.gif");
 		$("#answers-stats").html(fail);
 		emptyArray.push(pick);
-		/*Removes all of the items or values from "index" and replaces them with triviaGame object array.
+		/*Because index holds the randomly chosen question in the triviaGame object array, we erase the contents of it.
+		We only need the start point of index, and the end point of 1 because there is only 1 value associated with the index variable at a time
+		essentially just removing the value of the 0 position in this array to replace later.
 		.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"*/
 		triviaGame.splice(index, 1);
 		//Assigns variable to set timeout
