@@ -11,8 +11,32 @@ const triviaGame = [{
 	question: "What product does Dunder Mifflin primarily sell?",
 	options: ["Pencils", "Post-it Notes", "Paper", "Printers"],
 	answer: 2,
-	photo1: "",
-	photo2: "",
+	photo1: "assets/images/celebration.gif",
+	photo2: "assets/images/turntables.gif",
+}, {
+	question: "What is the name of Jim and Pam's first child?",
+	options: ["Peepee", "Peepa", "Mimi", "Cece"],
+	answer: 3,
+	photo1: "assets/images/highfive.gif",
+	photo2: "assets/images/wrong.gif",
+}, {
+	question: "Abraham Lincoln once said that 'If you're a racist...",
+	options: ["I will attack you with the north", "I hate you", "you'll go to prison", "don't call me Surly"],
+	answer: 0,
+	photo1: "assets/images/thankyou.gif",
+	photo2: "assets/images/ignorant.gif",
+}, {
+	question: "In an episode titled 'The Injury', what injury does Michael endure?",
+	options: ["Head stuck in stair railing", "Burns foot on foreman grill", "Hit by a car", "Stomach Cramps"],
+	answer: 1,
+	photo1: "assets/images/correct.gif",
+	photo2: "assets/images/grill.gif",
+}, {
+	question: "Who was Pam's first romance on the show?",
+	options: ["Dwight", "Oscar", "Roy", "Michael"],
+	answer: 2,
+	photo1: "assets/images/nice.gif",
+	photo2: "assets/images/work.gif",
 }];
 //Global Variables
 let correctGuess = 0;
@@ -129,7 +153,7 @@ function correctPic() {
 			//Empty's the question-text div
 			$("#question-text").empty();
 			//Overrides question-text with:
-			$("#question-text").html("<h3> Game Over, Man! Here's the deets: </h3>");
+			$("#question-text").html("<h3> Well, that's every of the time we have; here's how ya did: </h3>");
 			//Appends correct, incorrect, and unanswered scores
 			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
