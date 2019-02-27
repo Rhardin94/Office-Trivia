@@ -260,7 +260,7 @@ $(document).ready(function () {
 			}
 		}, 1000 * 6);
 	}
-	//Function that restarts the game
+	//Function that restarts the game, does not work, ignoring on-click event for some reason.
 	$("#reset").on("click", function () {
 		$("#answers-stats").empty();
 		$("#question-text").empty();
