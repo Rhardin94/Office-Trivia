@@ -164,7 +164,6 @@ $(document).ready(function () {
 		essentially just removing the value of the 0 position in this array to replace later.
 		.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"*/
 		triviaGame.splice(index, 1);
-		triviaGame.splice(index, 1);
 		//Assigns variable to set timeout
 		let hiddenPic = setTimeout(function () {
 			$("#answers-stats").empty();
@@ -202,7 +201,6 @@ $(document).ready(function () {
 		We only need the start point of index, and the end point of 1 because there is only 1 value associated with the index variable at a time
 		essentially just removing the value of the 0 position in this array to replace later.
 		.splice researched here: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"*/
-		triviaGame.splice(index, 1);
 		triviaGame.splice(index, 1);
 		//Assigns variable to set timeout
 		let hiddenPic = setTimeout(function () {
