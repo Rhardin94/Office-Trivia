@@ -21,7 +21,7 @@ $(document).ready(function () {
 		photo2: "assets/images/wrong.gif",
 	}, {
 		question: "Abraham Lincoln once said that 'If you're a racist...",
-		options: ["I will attack you with the north", "I hate you", "you'll go to prison", "don't call me Surly"],
+		options: ["I will attack you with the north", "I hate you", "You'll go to prison", "Don't call me Surly"],
 		answer: 0,
 		photo1: "assets/images/thankyou.gif",
 		photo2: "assets/images/ignorant.gif",
@@ -52,11 +52,11 @@ $(document).ready(function () {
 	let emptyArray = [];
 	let tempArray = [];
 	const themeSong = new Audio("assets/audio/officetheme.mp3");
-
-	let goBtn = $("<h2>").text("Click here to begin");
+//Appends the button that begins the game and plays the themesong
+	let goBtn = $("<button>").html("<h2> Click here to begin </h2>");
+	goBtn.attr("id", "goBtn");
 	$("#answers-stats").append(goBtn);
 	themeSong.play();
-
 	//Function that begins the game
 	$(goBtn).on("click", function () {
 		goBtn.hide();
@@ -104,9 +104,9 @@ $(document).ready(function () {
 		//Loops through the keys in the chosen position
 		for (let i = 0; i < pick.options.length; i++) {
 			//Assigns the user's guess to a dynamically created div
-			let userGuess = $("<h2>").attr("class", "userguess");
+			let userGuess = $("<button>").attr("class", "userguess");
 			//Appends each value as an h2 inside a newly created div
-			userGuess.html(pick.options[i]);
+			userGuess.html("<h2>" + pick.options[i] + "</h2>");
 			//Assigns a data-value to each key: value
 			userGuess.attr("data-guessvalue", i);
 			//Appends the newly created divs with each answer option into the answers-stats div
@@ -150,6 +150,7 @@ $(document).ready(function () {
 			timer = 30;
 			//Check if game is over, and then displays the score screen
 			if ((incorrectGuess + correctGuess + unanswered) === qCount) {
+				$("#time-remaining").empty();
 				//Empty's the question-text div
 				$("#question-text").empty();
 				//Overrides question-text with:
@@ -182,6 +183,7 @@ $(document).ready(function () {
 			timer = 30;
 			//Check if game is over, and then displays the score screen
 			if ((incorrectGuess + correctGuess + unanswered) === qCount) {
+				$("#time-remaining").empty();
 				//Empty's the question-text div
 				$("#question-text").empty();
 				//Overrides question-text with:
@@ -215,6 +217,7 @@ $(document).ready(function () {
 			timer = 30;
 			//Check if game is over, and then displays the score screen
 			if ((incorrectGuess + correctGuess + unanswered) === qCount) {
+				$("#time-remaining").empty();
 				//Empty's the question-text div
 				$("#question-text").empty();
 				//Overrides question-text with:
