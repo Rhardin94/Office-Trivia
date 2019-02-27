@@ -154,7 +154,7 @@ function correctPic() {
 			$("#question-text").empty();
 			//Overrides question-text with:
 			$("#question-text").html("<h3> Well, that's every of the time we have; here's how ya did: </h3>");
-			//Appends correct, incorrect, and unanswered scores
+			//Appends correct, incorrect, and unanswered scores, appends reset button, and resets scores to zero, or continues the game
 			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
 			$("#answers-stats").append("<h2> Unanswered: " + unanswered + "</h2>");
@@ -170,6 +170,7 @@ function correctPic() {
 		}
 	}, 1000 * 3);
 }
+//Function that hides photo and then displays if answer is incorrect
 function incorrectPic() {
 	$("#answers-stats").html("<img src=" + pick.photo2 + ">");
 	emptyArray.push(pick);
@@ -185,7 +186,7 @@ function incorrectPic() {
 			$("#question-text").empty();
 			//Overrides question-text with:
 			$("#question-text").html("<h3> Well, that's every of the time we have; here's how ya did: </h3>");
-			//Appends correct, incorrect, and unanswered scores
+			//Appends correct, incorrect, and unanswered scores, appends reset button, and resets scores to zero, or continues the game
 			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
 			$("#answers-stats").append("<h2> Unanswered... " + unanswered + "</h2>");
@@ -201,6 +202,7 @@ function incorrectPic() {
 		}
 	}, 1000 * 3);
 }
+//Function that hides photo then displays if question isn't answered
 function unansweredPic() {
 	const fail = $("<img>").attr("src", "assets/images/dwight.gif");
 	$("#answers-stats").html(fail);
@@ -217,7 +219,7 @@ function unansweredPic() {
 			$("#question-text").empty();
 			//Overrides question-text with:
 			$("#question-text").html("<h3> Well, that's every of the time we have; here's how ya did: </h3>");
-			//Appends correct, incorrect, and unanswered scores
+			//Appends correct, incorrect, and unanswered scores, appends reset button, and resets scores to zero, or continues the game
 			$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 			$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
 			$("#answers-stats").append("<h2> Unanswered... " + unanswered + "</h2>");
