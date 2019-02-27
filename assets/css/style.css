@@ -14,6 +14,10 @@ body {
 h2 :hover {
     color: whitesmoke;
 }
+.jpg, .gif, .png, .webp {
+    width: 250px;
+    height: 200px;
+}
 .userguess {
     background-color: darkgray;
     width: 35%;
