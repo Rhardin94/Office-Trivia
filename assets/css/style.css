@@ -1,5 +1,7 @@
 body {
     background-image: url("../images/background.jpg");
+    background-position: center;
+    background-attachment: fixed;
 }
 /*Main container of the entire game*/
 #game {

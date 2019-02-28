@@ -180,7 +180,7 @@ $(document).ready(function () {
 				$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 				$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
 				$("#answers-stats").append("<h2> Unanswered: " + unanswered + "</h2>");
-				let resetBtn = $("<h4>").text("Play Again?");
+				let resetBtn = $("<button>").html("<h4> Play again? </h4>");
 				resetBtn.attr("id", "reset");
 				$("#answers-stats").append(resetBtn);
 				correctGuess = 0;
@@ -218,7 +218,7 @@ $(document).ready(function () {
 				$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 				$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
 				$("#answers-stats").append("<h2> Unanswered... " + unanswered + "</h2>");
-				let resetBtn = $("<h4>").text("Play Again?");
+				let resetBtn = $("<button>").html("<h4> Play again? </h4>");
 				resetBtn.attr("id", "reset");
 				$("#answers-stats").append(resetBtn);
 				correctGuess = 0;
@@ -257,7 +257,7 @@ $(document).ready(function () {
 				$("#answers-stats").append("<h2> Correct: " + correctGuess + "</h2>");
 				$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
 				$("#answers-stats").append("<h2> Unanswered... " + unanswered + "</h2>");
-				let resetBtn = $("<h4>").text("Play Again?");
+				let resetBtn = $("<button>").html("<h4> Play again? </h4>");
 				resetBtn.attr("id", "reset");
 				$("#answers-stats").append(resetBtn);
 				correctGuess = 0;
