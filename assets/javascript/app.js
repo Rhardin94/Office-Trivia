@@ -270,7 +270,7 @@ $(document).ready(function () {
 		}, 1000 * 4);
 	}
 	//Function that restarts the game, does not work, ignoring on-click event for some reason.
-	$("#reset").on("click", function () {
+	$(document.body).on("click", "#reset", function () {
 		$("#answers-stats").empty();
 		$("#question-text").empty();
 		for (let i = 0; i < tempArray.length; i++) {
