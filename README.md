@@ -1,5 +1,5 @@
 # The Office Trivia-Game
-## Link to game found here: https://rhardin94.github.io/Trivia-Game/.
+## Link to game found here: https://rhardin94.github.io/Office-Trivia/.
 * A trivia game that offers the user a series of questions in which they have 30 seconds to choose an answer.
     * If the user chooses correctly, a congratulatory screen is displayed, then the game moves to the next question
     * If the user chooses incorrectly, a snarky screen with the correct answer is displayed, then the game moves to the next question
