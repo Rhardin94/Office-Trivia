@@ -1,5 +1,5 @@
 body {
-    background-image: url("../images/background.jpg");
+    background-image: url("../assets/images/background.jpg");
     background-position: center;
     background-attachment: fixed;
 }
@@ -15,6 +15,7 @@ body {
     text-align: center;
     border: 5px solid red;
 }
+/* Button to start the game sizing */
 #game button {
     width: 60%;
 }
@@ -30,13 +31,23 @@ h2 {
     width: 35%;
     border: 3px solid red;
 }
-#goBtn :hover {
+#goBtn:hover {
     color: red;
 }
+#reset {
+  background-color: whitesmoke;
+    width: 35%;
+    border: 3px solid red;
+}
+#reset:hover {
+  color: red;
+}
+/* Image sizing */
 img {
     width: 300px;
     height: 200px;
 }
+/* Sizing for each guess button */
 .userguess {
     background-color: whitesmoke;
     width: 35%;
@@ -44,15 +55,18 @@ img {
     margin: 5px;
     border: 3px solid red;
 }
+/* Hover for each guess */
 .userguess :hover {
     color: red;
 }
+/* Header fonts */
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h2, h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
+/* Media queries */
 @media screen and (max-width: 980px) {
     #game {
         width: 95%;

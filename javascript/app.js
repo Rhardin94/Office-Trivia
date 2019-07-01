@@ -258,7 +258,8 @@ $(document).ready(function () {
 				$("#answers-stats").append("<h2> Incorrect: " + incorrectGuess + "</h2>");
 				$("#answers-stats").append("<h2> Unanswered... " + unanswered + "</h2>");
 				let resetBtn = $("<button>").html("<h4> Play again? </h4>");
-				resetBtn.attr("id", "reset");
+        resetBtn.attr("id", "reset");
+        resetBtn.addClass("")
 				$("#answers-stats").append(resetBtn);
 				correctGuess = 0;
 				incorrectGuess = 0;
